@@ -78,3 +78,34 @@ nav li a{
 .section-form form input[type="submit"]:hover{
     opacity: .8;
 }
+
+/****products****/
+.products{
+    width: 60%;
+    margin: 10px 0;
+}
+.products_item{
+    display: flex;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+.product_item_img{
+    width: 25%;
+    margin-right: 10px;
+}
+.product_item_actions{
+    flex: 1;
+    text-align: right;
+}
+.products_item .Add-To-Cart{
+    display: block;
+    margin-left: auto;
+    background-color: darkgreen;
+    color: #fff;
+    border:0 ;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+
+}

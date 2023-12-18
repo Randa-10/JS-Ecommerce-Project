@@ -1,0 +1,80 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Dosis', sans-serif;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+header{
+    /* height: 90px; */
+    background-color: #333;
+    padding: 10px;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-content .logo{
+   font-size: 32px;
+   color: #fff;
+   text-decoration: none;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav ul#user_info{
+    display: none;
+}
+nav li a{
+    display: block;
+    max-width: 50px;
+    color: #fff;
+    margin: 0 5px;
+}
+/******************************form*************************/
+.section-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+    text-align: center;
+    background: #bc6ff1;
+    padding: 20px;
+}
+.section-form h2{
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #52057b;
+}
+.section-form form{
+
+}
+.section-form form input{
+    display: block;
+    margin: 5px 0;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Dosis', sans-serif;
+    outline: none;
+
+}
+.section-form form input[type="submit"]{
+    font-size: 25px;
+    text-transform: uppercase;
+    height: auto;
+    cursor: pointer;
+}
+.section-form form input[type="submit"]:hover{
+    opacity: .8;
+}

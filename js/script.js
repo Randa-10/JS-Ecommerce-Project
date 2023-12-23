@@ -1,28 +1,4 @@
-// localStorage.setItem("name","randa")
-// console.log(localStorage.getItem("name"));
-// localStorage.removeItem("name")
 
-let userInfo=document.querySelector("#user_info")
-let useDom=document.querySelector("#user")
-let links=document.querySelector("#links")
-let logoutBtn=document.querySelector("#logout")
-
-let username=localStorage.getItem("username")
-if(username){
-    // console.log("yes");
-    links.remove()
-userInfo.style.display="flex"
-useDom.innerHTML=username
-}
-
-logoutBtn.addEventListener('click',function(){
-    localStorage.clear();
-        setTimeout(() => {
-           window.location="login.html"
-        },1000)
-
-} 
-)
 
 //define product
 let productDom=document.querySelector(".products")
@@ -31,31 +7,9 @@ let cardsProductDom=document.querySelector(".carts-product div")
 let shoppingCartitems=document.querySelector(".shoppingCart")
 let badgeDom=document.querySelector(".badge")
 
-let product=[{
-    id:1,
-    title:"Headphone Item",
-    size:"large",
-    imgeUrl:"img/photo-1.avif"
-},{
-    id:2,
-    title:"Unsplash Item",
-    size:"large",
-    imgeUrl:"img/photo-2avif.avif"
-},
-{
-    id:3,
-    title:"Smart Watch Item",
-    size:"meduim",
-    imgeUrl:"img/photo-3.avif"
-},
-{
-    id:4,
-    title:"skincare Item",
-    size:"small",
-    imgeUrl:"img/photo-4.avif"
-},
-]
+//open cart menue
 shoppingCartitems.addEventListener('click',opencartmenu)
+//display product
 function draProduct(){
     let productui=product.map((items)=>{
         return `
@@ -76,26 +30,38 @@ function draProduct(){
     productDom.innerHTML=productui
 }draProduct()
 
+//check if this item on localstorage
+let addedItems=localStorage.getItem('productsInCart') ?JSON.parse(localStorage.getItem('productsInCart')):[]
 
+if(addedItems){
+    addedItems.map((items)=>{
+        cardsProductDom.innerHTML += `<p>${items.title}</p>`
+    })
+    badgeDom.style.display="block"
+    badgeDom.innerHTML=addedItems.length}
+
+
+//add to cart
 function addToCart(id){
-let choosingItem=product.find((items)=>items.id===id)
-cardsProductDom.innerHTML+=`<P>${choosingItem.title }</P>`
-let cardsProductLenght=document.querySelectorAll(".carts-product div p")
-
-badgeDom.style.display="block"
-badgeDom.innerHTML=cardsProductLenght.length
-
-console.log(choosingItem);
-}
-
-function checkuser(){
     if(localStorage.getItem("username")){
-        window.location="cartProduct.html"
-    }else{
+        let choosingItem=product.find((items)=>items.id===id)
+        cardsProductDom.innerHTML+=`<P>${choosingItem.title }</P>`
+
+        addedItems=[...addedItems,choosingItem]
+        localStorage.setItem("productsInCart",JSON.stringify(addedItems))
+        let cardsProductLenght=document.querySelectorAll(".carts-product div p")
+        
+        badgeDom.style.display="block"
+        badgeDom.innerHTML=cardsProductLenght.length
+        
+        console.log(choosingItem);
+        }else{
         window.location="login.html"
 
     }
+
 }
+//open cart menue
 
 function opencartmenu(){ 
     if(cardsProductDom.innerHTMLm !== ""){

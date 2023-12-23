@@ -55,7 +55,7 @@ let product=[{
     imgeUrl:"img/photo-4.avif"
 },
 ]
-shoppingCartitems.addEventListener('click',opncartmenu())
+shoppingCartitems.addEventListener('click',opencartmenu)
 function draProduct(){
     let productui=product.map((items)=>{
         return `
@@ -75,6 +75,8 @@ function draProduct(){
     })
     productDom.innerHTML=productui
 }draProduct()
+
+
 function addToCart(id){
 let choosingItem=product.find((items)=>items.id===id)
 cardsProductDom.innerHTML+=`<P>${choosingItem.title }</P>`
@@ -95,6 +97,15 @@ function checkuser(){
     }
 }
 
-function opncartmenu(){
-    cardsProductmenue.style.display="block"
+function opencartmenu(){ 
+    if(cardsProductDom.innerHTMLm !== ""){
+       if (cardsProductmenue.style.display=="block"){
+        cardsProductmenue.style.display="none"
+
+       }else{
+            cardsProductmenue.style.display="block"
+
+       }
+
+    }
 }

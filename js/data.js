@@ -1,4 +1,4 @@
-let product=[{
+let productDb=[{
     id:1,
     title:"Headphone Item",
     size:"large",
@@ -22,3 +22,5 @@ let product=[{
     imgeUrl:"img/photo-4.avif"
 },
 ]
+
+localStorage.setItem("product",JSON.stringify(productDb))

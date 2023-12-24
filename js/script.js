@@ -6,7 +6,7 @@ let cardsProductmenue=document.querySelector(".carts-product ")
 let cardsProductDom=document.querySelector(".carts-product div")
 let shoppingCartitems=document.querySelector(".shoppingCart")
 let badgeDom=document.querySelector(".badge")
-
+let product=JSON.parse(localStorage.getItem("product"))
 //open cart menue
 shoppingCartitems.addEventListener('click',opencartmenu)
 //display product
@@ -16,7 +16,7 @@ function draProduct(){
         <div class="products_item">
         <img src=${items.imgeUrl} alt="" class="product_item_img">
         <div class="product_item_des">
-            <h3>${items.title}</h3>
+            <a onclick="saveItemData(${items.id})">${items.title}</a>
             <P>Lorem ipsum dolor sit amet.</P>
             <span>${items.size}</span>
         </div>
@@ -74,4 +74,9 @@ function opencartmenu(){
        }
 
     }
+}
+//details
+function saveItemData(id){
+    localStorage.setItem("productId",id)
+    window.location="cartDetails.html"
 }

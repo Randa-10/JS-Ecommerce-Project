@@ -1,15 +1,16 @@
-let productsInCart=localStorage.getItem('productsInCart')
+// let productsInCart=localStorage.getItem('productsInCart')
 let productDom=document.querySelector(".products")
-
-if(productsInCart){
-    let items=JSON.parse(productsInCart);
-   drawProductUi(items)
-
-}
+let noProducts=document.querySelector(".noProducts")
 
 
-function drawProductUi(products){
-    // let products=JSON.parse(localStorage.getItem('productsInCart')) || allProducts
+function drawProductUi(allProducts = []){
+
+if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
+    noProducts.innerHTML="there is no items !"
+
+
+
+    let products=JSON.parse(localStorage.getItem('productsInCart')) || allProducts
     let productui=products.map((items)=>{
         return `
         <div class="products_item">
@@ -27,16 +28,15 @@ function drawProductUi(products){
     })
     productDom.innerHTML=productui
 }
-
-function removeFromCart(id){
-let productsInCart =localStorage.getItem('productsInCart')
-    if(productsInCart){
-        let items=JSON.parse(productsInCart);
-     let filterItems= items.filter((item)=>{
-            item.id !==id
-        })
-        localStorage.setItem("productsInCart",JSON.stringify(filterItems))
-        drawProductUi(filterItems)
-
+drawProductUi()
+function removeFromCart(id) {
+    let productsInCart = localStorage.getItem('productsInCart');
+    if (productsInCart) {
+        let items = JSON.parse(productsInCart);
+        let filterItems = items.filter((item) => {
+            return item.id !== id; 
+        });
+        localStorage.setItem("productsInCart", JSON.stringify(filterItems));
+        drawProductUi(filterItems);
     }
 }

@@ -142,6 +142,12 @@ nav ul#user_info .carts-product a{
     width: 25%;
     margin-right: 10px;
 }
+.product_item_des a{
+    display: block;
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+}
 .product_item_actions{
     flex: 1;
     text-align: right;
@@ -168,3 +174,11 @@ nav ul#user_info .carts-product a{
    width: 20px;
 }
 
+.itemsDetails img{
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #333;
+    padding: 2px;
+    height: 400px;
+    object-fit: cover;
+}

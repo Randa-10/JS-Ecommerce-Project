@@ -1,14 +1,15 @@
 let product=JSON.parse(localStorage.getItem("product"))
-
 let productId=localStorage.getItem("productId")
-
 let productDetailsItem=product.find(item=> item.id == productId)
 let itemDom=document.querySelector(".itemsDetails")
 
-itemDom.innerHTML=`
 
+
+itemDom.innerHTML=
+`
 <img src="${productDetailsItem.imgeUrl}" alt=""/>
 <h2>${productDetailsItem.title}</h2>
-<span>${productDetailsItem.size}</span>
+<span>size: ${productDetailsItem.size}</span><br>
+<span>qty : ${productDetailsItem.qty}</span>
 
 `

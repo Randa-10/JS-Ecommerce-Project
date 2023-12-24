@@ -5,12 +5,12 @@ let noProducts=document.querySelector(".noProducts")
 
 function drawProductUi(allProducts = []){
 
-if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
+if(JSON.parse(localStorage.getItem('productsInFav')).length === 0)
     noProducts.innerHTML="there is no items !"
 
 
 
-    let products=JSON.parse(localStorage.getItem('productsInCart')) || allProducts
+    let products=JSON.parse(localStorage.getItem('productsInFav')) || allProducts
     let productui=products.map((items)=>{
         return `
         <div class="products_item">
@@ -23,7 +23,7 @@ if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
 
         </div>
         <div class="product_item_actions">
-<button class="Add-To-Cart" onclick='removeFromCart(${items.id})'>remove From Cart</button>
+<button class="Add-To-Cart" onclick='removeFromFav(${items.id})'>remove From Fav</button>
 </div>
     </div>
         `
@@ -31,14 +31,14 @@ if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
     productDom.innerHTML=productui
 }
 drawProductUi()
-function removeFromCart(id) {
-    let productsInCart = localStorage.getItem('productsInCart');
-    if (productsInCart) {
-        let items = JSON.parse(productsInCart);
-        let filterItems = items.filter((item) => {
-            return item.id !== id; 
-        });
-        localStorage.setItem("productsInCart", JSON.stringify(filterItems));
-        drawProductUi(filterItems);
-    }
-}
+// function removeFromFav(id) {
+//     let productsInFav = localStorage.getItem('productsInFav');
+//     if (productsInFav) {
+//         let items = JSON.parse(productsInFav);
+//         let filterItems = items.filter((item) => {
+//             return item.id !== id; 
+//         });
+//         localStorage.setItem("productsInFav", JSON.stringify(filterItems));
+//         drawProductUi(filterItems);
+//     }
+// }

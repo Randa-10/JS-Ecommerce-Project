@@ -102,9 +102,7 @@ nav ul#user_info .carts-product a{
     letter-spacing: 2px;
     color: #52057b;
 }
-.section-form form{
 
-}
 .section-form form input{
     display: block;
     margin: 5px 0;
@@ -181,4 +179,16 @@ nav ul#user_info .carts-product a{
     padding: 2px;
     height: 400px;
     object-fit: cover;
+}
+#search{
+    width: 100%;
+    height: 40px;
+    display: block;
+    margin: 10px 0 ;
+    padding: 5px;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: 'Dosis', sans-serif;
+
 }

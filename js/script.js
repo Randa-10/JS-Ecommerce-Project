@@ -6,7 +6,7 @@ let cardsProductmenue=document.querySelector(".carts-product ")
 let cardsProductDom=document.querySelector(".carts-product div")
 let shoppingCartitems=document.querySelector(".shoppingCart")
 let badgeDom=document.querySelector(".badge")
-let product=JSON.parse(localStorage.getItem("product"))
+let product=productDb
 //open cart menue
 shoppingCartitems.addEventListener('click',opencartmenu)
 //display product
@@ -15,12 +15,13 @@ let draProduct;
 (draProduct=function (product =[]){
     let productui=product.map((items)=>{
         return `
-        <div class="products_item">
+        <div class="products_item" style="border:${items.isMe === "Y" ? '1px solid green':''}">
         <img src=${items.imgeUrl} alt="" class="product_item_img">
         <div class="product_item_des">
             <a onclick="saveItemData(${items.id})">${items.title}</a>
-            <P>Lorem ipsum dolor sit amet.</P>
+            <P>${items.des}</P>
             <span>${items.size}</span>
+            ${items.isMe === "Y"?'<button class="edit" onclick="editProduct('+ items.id +')">Edit Product</button>':""}
         </div>
         <div class="product_item_actions">
 <button class="Add-To-Cart" onclick='addToCart(${items.id})'>Add To Cart</button>
@@ -29,8 +30,8 @@ let draProduct;
     </div>
         `
     })
-    productDom.innerHTML=productui
-})(JSON.parse(localStorage.getItem("product")))
+    productDom.innerHTML=productui.join("")
+})(JSON.parse(localStorage.getItem("products"))|| product)
 
 //check if this item on localstorage
 let addedItems=localStorage.getItem('productsInCart') ?JSON.parse(localStorage.getItem('productsInCart')):[]
@@ -44,30 +45,33 @@ if(addedItems){
 
 
 //add to cart
-let allItems =[]
 function addToCart(id){
     if(localStorage.getItem("username")){
-        let choosingItem=product.find((items)=>items.id===id)
-let items= allItems.find(i=>i.id === choosingItem.id)
-if(items){
-choosingItem.qty +=1
+        let product=JSON.parse(localStorage.getItem("products")) || product
+  let products = product.find((items)=>items.id===id)
+let isProductInCart= addedItems.some(i=>i.id === products.id)
+if(isProductInCart){
+    addedItems= addedItems.map((P)=>{
+        if(P.id === products.id) P.qty+=1;
+      return P
+        
+    })
 }else{
-    allItems.push(choosingItem)
+    addedItems.push(products)
 }
 cardsProductDom.innerHTML=""
-allItems.forEach(item =>{
+addedItems.forEach(item =>{
     cardsProductDom.innerHTML+=`<P>${item.title } ${item.qty }</P>`
 })
 
-        addedItems=[...addedItems,choosingItem]
-      let uniqueProduct= getUniquArr(addedItems,"id")
-        localStorage.setItem("productsInCart",JSON.stringify(uniqueProduct))
+//save data
+        localStorage.setItem("productsInCart",JSON.stringify(addedItems))
+ //add counter of items
         let cardsProductLenght=document.querySelectorAll(".carts-product div p")
         
         badgeDom.style.display="block"
         badgeDom.innerHTML=cardsProductLenght.length
         
-        console.log(choosingItem);
         }else{
         window.location="login.html"
 
@@ -83,7 +87,6 @@ let unique=arr.map((item)=>item[filterType]).map((item,i,final)=> final.indexOf(
 return unique
 }
 //open cart menue
-
 function opencartmenu(){ 
     if(cardsProductDom.innerHTMLm !== ""){
        if (cardsProductmenue.style.display=="block"){
@@ -106,15 +109,15 @@ function saveItemData(id){
 let input=document.getElementById("search")
 
 input.addEventListener("keyup",function(e){
-    if(e.keyCode === 13){
+    // if(e.keyCode === 13){
 search(e.target.value , JSON.parse(localStorage.getItem("product")) )
-    }
+    // }
     if(e.target.value.trim() === "")
     draProduct(JSON.parse(localStorage.getItem("product")))
 })
 
 function search(title,myArray){
-    let arr=myArray.filter((item) => item.title.indexOf(title) !== -1)
+    let arr=myArray.filter((item) => item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
     draProduct(arr)
     console.log(arr);
 }
@@ -128,6 +131,7 @@ let favItem=localStorage.getItem('productsInFav') ?JSON.parse(localStorage.getIt
 // let favItem=[]
 function addToFav(id){
     if(localStorage.getItem("username")){
+        let product=JSON.parse(localStorage.getItem("products")) || product
         let choosingItem=product.find((items)=>items.id===id)
   choosingItem.liked =true
          favItem=[...favItem,choosingItem]
@@ -149,3 +153,25 @@ localStorage.setItem("product",JSON.stringify(product))
 
 }
 
+//filter
+let sizeFilter=document.getElementById("size-filter")
+
+sizeFilter.addEventListener("change",getProductFilterSize)
+
+function getProductFilterSize(e){
+    let val=e.target.value
+    let products=JSON.parse(localStorage.getItem("products")) || product;
+    if(val=== "all"){
+        draProduct(products)
+    }else{
+        products=products.filter((I)=>I.size === val);
+        draProduct(products)
+    }
+}
+
+
+//editProduct
+function editProduct(id){
+localStorage.setItem("editProduct",id)
+window.location="editProduct.html"
+}

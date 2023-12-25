@@ -192,3 +192,49 @@ nav ul#user_info .carts-product a{
     font-family: 'Dosis', sans-serif;
 
 }
+
+
+/****creat product***/
+.addItem{
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  width: 50px;
+  height: 50px;
+  background-color: #52057b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+
+}
+
+.addItem :hover{
+opacity:0.8 ;
+}
+.products{
+    width: 60%;
+    float: left;
+    margin: 10px 0;
+
+}
+.productfilter{
+    width: 35%;
+    float: right;
+    margin: 10px 0;
+}
+#size-filter{
+    width: 100%;
+    height: 40px;
+    display: block;
+}
+.edit{
+    display: block;
+    width: 140px;
+    background-color: green;
+    color: #fbf9f9;
+    padding: 10px 15px ;
+    border: none;
+
+}

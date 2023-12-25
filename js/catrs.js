@@ -17,7 +17,7 @@ if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
         <img src=${items.imgeUrl} alt="" class="product_item_img">
         <div class="product_item_des">
             <h3>${items.title}</h3>
-            <P>Lorem ipsum dolor sit amet.</P>
+            <P>${items.des}</P>
             <span>${items.size}</span><br>
             <span> qty: ${items.qty}</span>
 
@@ -26,9 +26,10 @@ if(JSON.parse(localStorage.getItem('productsInCart')).length === 0)
 <button class="Add-To-Cart" onclick='removeFromCart(${items.id})'>remove From Cart</button>
 </div>
     </div>
+
         `
     })
-    productDom.innerHTML=productui
+    productDom.innerHTML=productui.join("")
 }
 drawProductUi()
 function removeFromCart(id) {

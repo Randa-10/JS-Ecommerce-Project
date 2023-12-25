@@ -17,10 +17,9 @@ if(JSON.parse(localStorage.getItem('productsInFav')).length === 0)
         <img src=${items.imgeUrl} alt="" class="product_item_img">
         <div class="product_item_des">
             <h3>${items.title}</h3>
-            <P>Lorem ipsum dolor sit amet.</P>
+            <P>>${items.des}</P>
             <span>${items.size}</span><br>
             <span> qty: ${items.qty}</span>
-
         </div>
         <div class="product_item_actions">
 <button class="Add-To-Cart" onclick='removeFromFav(${items.id})'>remove From Fav</button>
@@ -28,17 +27,17 @@ if(JSON.parse(localStorage.getItem('productsInFav')).length === 0)
     </div>
         `
     })
-    productDom.innerHTML=productui
+    productDom.innerHTML=productui.join("")
 }
 drawProductUi()
-// function removeFromFav(id) {
-//     let productsInFav = localStorage.getItem('productsInFav');
-//     if (productsInFav) {
-//         let items = JSON.parse(productsInFav);
-//         let filterItems = items.filter((item) => {
-//             return item.id !== id; 
-//         });
-//         localStorage.setItem("productsInFav", JSON.stringify(filterItems));
-//         drawProductUi(filterItems);
-//     }
-// }
+function removeFromFav(id) {
+    let productsInFav = localStorage.getItem('productsInFav');
+    if (productsInFav) {
+        let items = JSON.parse(productsInFav);
+        let filterItems = items.filter((item) => {
+            return item.id !== id; 
+        });
+        localStorage.setItem("productsInFav", JSON.stringify(filterItems));
+        drawProductUi(filterItems);
+    }
+}

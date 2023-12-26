@@ -41,14 +41,15 @@ if(addedItems){
         cardsProductDom.innerHTML += `<p>${items.title} ${items.qty}</p>`
     })
     badgeDom.style.display="block"
-    badgeDom.innerHTML=addedItems.length}
+    badgeDom.innerHTML=addedItems.length
+}
 
 
 //add to cart
 function addToCart(id){
     if(localStorage.getItem("username")){
-        let product=JSON.parse(localStorage.getItem("products")) || product
-  let products = product.find((items)=>items.id===id)
+        let productt=JSON.parse(localStorage.getItem("products")) || product
+  let products = productt.find((items)=>items.id===id)
 let isProductInCart= addedItems.some(i=>i.id === products.id)
 if(isProductInCart){
     addedItems= addedItems.map((P)=>{
@@ -123,16 +124,14 @@ function search(title,myArray){
 }
 
 
-// search ("Headphone Item",JSON.parse(localStorage.getItem("product")))
-
 //add to fav
 let favItem=localStorage.getItem('productsInFav') ?JSON.parse(localStorage.getItem('productsInFav')):[]
 
 // let favItem=[]
 function addToFav(id){
     if(localStorage.getItem("username")){
-        let product=JSON.parse(localStorage.getItem("products")) || product
-        let choosingItem=product.find((items)=>items.id===id)
+        let productt=JSON.parse(localStorage.getItem("products")) || product
+        let choosingItem=productt.find((items)=>items.id===id)
   choosingItem.liked =true
          favItem=[...favItem,choosingItem]
          let uniqueProduct= getUniquArr(favItem,"id")

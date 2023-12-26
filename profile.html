@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | creat product page</title>
+    <title>Shopping Cart | profile page</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/creatproduct.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,7 @@
                         <li><a href="./fav.html" > favorites</a></li>  
                         <li><a href="./myproducts.html" > my products</a></li>  
 
+
                         <li class="shoppingCart">
                         <i class="fa-solid fa-cart-shopping"></i> 
                         <span class="badge"></span>
@@ -52,30 +53,24 @@
             </div>
         </div>
     </header>
-<section class="creatproduct">
-    
-<div class="container">
-    <form id="product-form">
-        <input type="file" id="uploadimg">
-        <input type="text" placeholder="name of product" id="product-name">
-        <input type="text" placeholder="Description" id="product-desc">
-        <select name="" id="product-size">
-            <option  hidden >select value</option>
-
-    <option value="small">Small</option>
-    <option value="medium">Medium</option>
-    <option value="large">Large</option>
-        </select>
-        <input type="submit" value="create">
-    </form>
-
+<section class="profile page">
+    <div class="container"> 
+        <img src="./img/1212215.jpg" alt="" class="user-avatar">
+<h2 id="username"></h2>
+<p id="email"></p>
+<p id="productlength">product length :<span> </span></p>
+<a href="./editprofile.html">Edit profile</a>
 </div>
+   
+
+<a href="creatProduct.html" class="addItem"><i class="fa fa-plus"></i></a>
+
  </section>
     <script src="js/user.js"></script>
     <script src="js/data.js"></script>
-
-    <script src="js/creatProduct.js"></script>
+    <!-- <script src="js/editProduct.js"></script> -->
     <script src="js/cartMenu.js"></script>
+    <script src="js/profile.js"></script>
 
 </body>
 

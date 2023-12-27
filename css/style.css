@@ -1,48 +1,73 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Dosis', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
 }
-.container{
+
+.container {
     width: 80%;
     margin: auto;
 }
-header{
-    /* height: 90px; */
+
+header {
     background-color: #333;
     padding: 10px;
 }
-.header-content{
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.header-content .logo{
-   font-size: 32px;
-   color: #fff;
-   text-decoration: none;
+
+.header-content .logo {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
 }
 
-nav ul{
+nav {
     display: flex;
-    list-style: none;
-}
-nav ul#user_info{
-    display: none;
     align-items: center;
 }
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+#user_info li {
+    position: relative;
+}
+
 #user_info li i {
     color: #fff;
     font-size: 20px;
     cursor: pointer;
 }
-#user_info li{
-    position: relative;
-}
-#user_info li .badge{
+
+#user_info li .badge {
     width: 20px;
     height: 20px;
     background-color: rgb(159, 31, 31);
@@ -56,35 +81,130 @@ nav ul#user_info{
     line-height: 20px;
     display: none;
 }
- .header-content nav ul li a{
-    display: block;
-    max-width: 50px;
-    color: #fff;
-    margin: 0 5px;
-    text-decoration: none;
-}
-#user_info li .carts-product{
+
+.header-content nav ul#user_info .carts-product {
     position: absolute;
     width: 200px;
-    transform: translate(-42%,0);
-    background: #bebebe;
     top: 46px;
+    right: 0;
+    background: #bebebe;
     padding: 10px;
     border: 1px solid green;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-nav ul#user_info .carts-product a{
- 
+
+.header-content nav ul#user_info .carts-product a {
     color: #fff;
-    margin: 0;
-    padding: 0;
     text-decoration: none;
     text-align: center;
     background: darkgreen;
-    /* top: 46px; */
-    padding:8px;
+    padding: 8px;
     display: block;
+    transition: background 0.3s ease;
 }
+
+.header-content nav ul#user_info .carts-product a:hover {
+    background: #006400;
+}
+/* Add your existing styles here */
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #menu-toggle:checked + .menu-icon {
+        display: none;
+    }
+
+    #menu-toggle:not(:checked) + .menu-icon {
+        display: block;
+    }
+
+    .header-content nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .header-content nav.show {
+        display: flex;
+    }
+
+    .header-content nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .header-content .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+    }
+
+    #user_info li:hover .badge {
+        display: block;
+    }
+
+    .header-content nav ul#user_info:hover .carts-product {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* 
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .header-content .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+    }
+
+    #user_info li:hover .badge {
+        display: block;
+    }
+
+    .header-content nav ul#user_info:hover .carts-product {
+        opacity: 1;
+        visibility: visible;
+    }
+} */
+
 
 /******************************form*************************/
 .section-form{
@@ -245,3 +365,4 @@ opacity:0.8 ;
     border-radius: 50%;
     margin: 10px 0;
 }
+/* //////////////////////////// */

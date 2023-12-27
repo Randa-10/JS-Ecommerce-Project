@@ -7,9 +7,6 @@ function drawProductUi(allProducts = []){
 
 if(JSON.parse(localStorage.getItem('productsInFav')).length === 0)
     noProducts.innerHTML="there is no items !"
-
-
-
     let products=JSON.parse(localStorage.getItem('productsInFav')) || allProducts
     let productui=products.map((items)=>{
         return `
@@ -17,14 +14,14 @@ if(JSON.parse(localStorage.getItem('productsInFav')).length === 0)
         <img src=${items.imgeUrl} alt="" class="product_item_img">
         <div class="product_item_des">
             <h3>${items.title}</h3>
-            <P>>${items.des}</P>
+            <P>${items.des}</P>
             <span>${items.size}</span><br>
             <span> qty: ${items.qty}</span>
         </div>
         <div class="product_item_actions">
-<button class="Add-To-Cart" onclick='removeFromFav(${items.id})'>remove From Fav</button>
-</div>
-    </div>
+        <button class="Add-To-Cart" onclick='removeFromFav(${items.id})'>remove From Fav</button>
+        </div>
+        </div>
         `
     })
     productDom.innerHTML=productui.join("")

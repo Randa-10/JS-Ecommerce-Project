@@ -12,3 +12,6 @@ useremailDemo2.innerHTML=get_email
 
 
 productlength.innerHTML=myproducts.length
+
+///////////////////////////////////////////////
+

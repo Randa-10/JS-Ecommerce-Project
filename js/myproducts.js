@@ -10,22 +10,20 @@ let drawProduct
    let myProducts=product.filter(item=>item.isMe==="Y")
    if(myProducts.length !== 0  ){
 
-  
     let productui=myProducts.map((items)=>{
         return `
-        <div class="products_item" style="border:${items.isMe === "Y" ? '1px solid green':''}">
-        <img src=${items.imgeUrl} alt="" class="product_item_img">
-        <div class="product_item_des">
+        <div class="products_item2" style="border:${items.isMe === "Y" ? '1px solid green':''}">
+        <img src=${items.imgeUrl} alt="" class="product_item_img2">
+        <div class="product_item_des2">
             <a onclick="saveItemData(${items.id})">${items.title}</a>
             <P>${items.des}</P>
             <span>${items.size}</span>
         </div>
-        <div class="product_item_actions">   
-                 <button class="edit" onclick="editProduct(${items.id})">Edit Product</button>
-
-<button class="Add-To-Cart" onclick='deletproduct(${items.id})'>delet product</button>
-</div>
-    </div>
+        <div class="product_item_actions2">   
+                 <button class="edit2" onclick="editProduct(${items.id})">Edit Product</button>
+                 <button class="Add-To-Cart2" onclick='deletproduct(${items.id})'>delet product</button>
+              </div>
+              </div>
         `
     })
     productDom.innerHTML=productui.join("")

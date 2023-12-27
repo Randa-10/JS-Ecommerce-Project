@@ -13,9 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dosis:wght@600;800&family=Fira+Sans:ital,wght@0,200;1,100;1,200&family=Josefin+Sans:ital,wght@0,100;1,100&family=Oswald:wght@300;500&family=PT+Sans+Narrow:wght@700&family=Roboto:ital,wght@0,100;0,900;1,400&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-      
 
 </head>
 
@@ -26,24 +25,26 @@
         <div class="container">
             <div class="header-content">
                 <a href="home.html" class="logo">Shopping Cart</a>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
                 <nav>
                     <ul id="links">
                         <li><a href="login.html">Sign In</a></li>
-                        <li><a href="register.html" >Sign Up</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
                     </ul>
                     <ul id="user_info">
-                        <li><a href="./profile.html" id="user"></a></li>               
-                        <li><a href="./fav.html" > favorites</a></li>  
-                        <li><a href="./myproducts.html" > my products</a></li>  
+                        <li><a href="./profile.html" id="user"></a></li>
+                        <li><a href="./fav.html"> favorites</a></li>
+                        <li><a href="./myproducts.html"> my products</a></li>
+
 
                         <li class="shoppingCart">
-                        <i class="fa-solid fa-cart-shopping"></i> 
-                        <span class="badge"></span>
-                        <div class="carts-product">
-                            <!-- <p>item name</p> -->
-                            <div></div>
-                            <a href="cartProduct.html">view product</a>
-                        </div>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="badge"></span>
+                            <div class="carts-product">
+                                <div></div>
+                                <a href="./cartProduct.html">view product</a>
+                            </div>
                         </li>
                         <li><a href="#" id="logout">logout</a></li>
                     </ul>
@@ -52,25 +53,25 @@
             </div>
         </div>
     </header>
-<section class="creatproduct">
-    
-<div class="container">
-    <form id="product-form">
-        <input type="file" id="uploadimg">
-        <input type="text" placeholder="name of product" id="product-name">
-        <input type="text" placeholder="Description" id="product-desc">
-        <select name="" id="product-size">
-            <option  hidden >select value</option>
+    <section class="creatproduct">
 
-    <option value="small">Small</option>
-    <option value="medium">Medium</option>
-    <option value="large">Large</option>
-        </select>
-        <input type="submit" value="create">
-    </form>
+        <div class="container">
+            <form id="product-form">
+                <input type="file" id="uploadimg">
+                <input type="text" placeholder="name of product" id="product-name">
+                <input type="text" placeholder="Description" id="product-desc">
+                <select name="" id="product-size">
+                    <option hidden>select value</option>
 
-</div>
- </section>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+                <input type="submit" value="create">
+            </form>
+
+        </div>
+    </section>
     <script src="js/user.js"></script>
     <script src="js/data.js"></script>
 

@@ -1,18 +1,20 @@
-.creatproduct{
 
+.creatproduct {
+    background-color: #f8f8f8;
+    padding: 50px;
+    border-radius: 10px;
 }
-.creatproduct form{
 
-}
-
-.creatproduct input , .creatproduct select{
+.creatproduct input,
+.creatproduct select {
     width: 100%;
     height: 40px;
     padding: 10px;
-    border: 1px solid #421010;
+    border: 1px solid #ccc;
     margin: 10px 0;
     border-radius: 5px;
     font-size: 18px;
+    box-sizing: border-box;
 }
 
 .creatproduct input[type=submit] {
@@ -20,4 +22,15 @@
     cursor: pointer;
     background-color: #333;
     color: aliceblue;
+    transition: background-color 0.3s ease;
+}
+
+.creatproduct input[type=submit]:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+    .creatproduct {
+        padding: 30px;
+    }
 }

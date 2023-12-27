@@ -25,7 +25,7 @@ let draProduct;
         </div>
         <div class="product_item_actions">
 <button class="Add-To-Cart" onclick='addToCart(${items.id})'>Add To Cart</button>
-<i class="fa-regular fa-heart fav" style="color :${items.liked == true ? 'red':''}" onclick='addToFav(${items.id})' ></i>          
+<i class="fa-solid fa-heart fav" style="color: ${items.liked ? 'red' : 'gray'}" onclick='addToFav(${items.id})'></i>
 </div>
     </div>
         `
@@ -38,7 +38,7 @@ let addedItems=localStorage.getItem('productsInCart') ?JSON.parse(localStorage.g
 
 if(addedItems){
     addedItems.map((items)=>{
-        cardsProductDom.innerHTML += `<p>${items.title} ${items.qty}</p>`
+        cardsProductDom.innerHTML += `<p>${items.title} <span class="qty">${items.qty}</span></p>`
     })
     badgeDom.style.display="block"
     badgeDom.innerHTML=addedItems.length
@@ -174,3 +174,17 @@ function editProduct(id){
 localStorage.setItem("editProduct",id)
 window.location="editProduct.html"
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('.header-content nav');
+
+    menuToggle.addEventListener('change', function () {
+        if (menuToggle.checked) {
+            nav.classList.add('show');
+        } else {
+            nav.classList.remove('show');
+        }
+    });
+});

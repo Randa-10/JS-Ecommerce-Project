@@ -1,0 +1,62 @@
+.products_item2 {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    height: 150px;
+}
+
+.product_item_img2 {
+    width: 25%;
+    margin-right: 10px;
+}
+
+.product_item_des2 {
+    flex: 1;
+    text-align: left;
+}
+
+.product_item_actions2 {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.edit2,
+.Add-To-Cart2 {
+    display: block;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    background-color: darkgreen;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .products_item2 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .product_item_img2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .product_item_des2,
+    .product_item_actions2 {
+        text-align: center;
+    }
+
+    .edit2,
+    .Add-To-Cart2 {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,94 @@
+.section-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    background: #508879;
+    padding: 20px;
+    transition: all 0.3s ease; 
+}
+
+.section-form:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.section-form h2 {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    color: #181d2d;
+    opacity: 0.9;
+    transition: all 0.5s ease-in-out;
+}
+
+.section-form:hover h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-form form input {
+    display: block;
+    margin: 10px auto;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Dosis', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.section-form form input[type="submit"] {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    height: auto;
+    cursor: pointer;
+    background-color: #181d2d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.section-form form input[type="submit"]:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.qt {
+    color: #181d2d;
+    text-decoration: none;
+    font-size: large;
+ 
+}
+.qtt{
+       opacity: .8;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.section-form:hover .qtt {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .section-form {
+        width: 90%;
+    }
+
+    .section-form h2 {
+        font-size: 2em;
+    }
+
+    .section-form form input {
+        margin: 8px auto;
+    }
+
+    .section-form form input[type="submit"] {
+        font-size: 1.3em;
+    }
+}

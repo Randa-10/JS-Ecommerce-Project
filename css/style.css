@@ -49,8 +49,10 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
+    /* font-size: 1rem; */
     transition: color 0.3s ease;
+    text-transform: capitalize;
 }
 
 nav ul li a:hover {
@@ -85,7 +87,7 @@ nav ul li a:hover {
 .header-content nav ul#user_info .carts-product {
     position: absolute;
     display: none;
-    width: 200px;
+    width: 150px;
     top: 46px;
     background: #bebebe;
     padding: 10px;
@@ -265,6 +267,7 @@ opacity:0.8 ;
 .carts-product {
     background-color: #f8f8f8;
     padding: 10px;
+
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -346,7 +349,7 @@ opacity:0.8 ;
     }
 
     .header-content nav.show {
-        display:inline;
+        display:block;
     }
 
     .header-content nav ul li {
@@ -361,7 +364,16 @@ opacity:0.8 ;
         color: #fff;
         font-size: 24px;
     }
-
+    .header-content nav ul#user_info .carts-product {
+        position: absolute;
+        display: none;
+        width: 130px;
+        top: 46px;
+        background: #bebebe;
+        padding: 10px;
+        border: 1px solid green;
+        transition: opacity 0.3s ease,  0.3s ease;
+    }
     #user_info li .badge {
         /* display: block; */
         width: 20px;

@@ -21,7 +21,7 @@ let drawProduct
         </div>
         <div class="product_item_actions2">   
                  <button class="edit2" onclick="editProduct(${items.id})">Edit Product</button>
-                 <button class="Add-To-Cart2" onclick='deletproduct(${items.id})'>delet product</button>
+                 <button class="Add-To-Cart2" onclick='deletproduct(${items.id})'>delete product</button>
               </div>
               </div>
         `

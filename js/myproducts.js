@@ -47,7 +47,11 @@ function editProduct(id){
         let filtered=myProducts.filter((i) => i.id !== id)
         let clickitem=myProducts.find((i) => i.id === id)
         products=products.filter((i) => i.id !== clickitem.id)
-        localStorage.setItem("products",JSON.stringify(products))   
+        localStorage.setItem("products",JSON.stringify(products))  
+        window.location.reload();
       drawProduct(filtered)
 
     }
+
+
+   

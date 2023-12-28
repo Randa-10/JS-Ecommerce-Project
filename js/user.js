@@ -9,6 +9,8 @@ if(username){
     links.remove()
 userInfo.style.display="flex"
 useDom.innerHTML=username
+}else{
+    // useDom.innerHTML= "login"
 }
 
 logoutBtn.addEventListener('click',function(){

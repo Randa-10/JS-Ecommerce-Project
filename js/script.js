@@ -24,9 +24,9 @@ let draProduct;
             ${items.isMe === "Y"?'<button class="edit" onclick="editProduct('+ items.id +')">Edit Product</button>':""}
         </div>
         <div class="product_item_actions">
-<button class="Add-To-Cart" onclick='addToCart(${items.id})'>Add To Cart</button>
-<i class="fa-solid fa-heart fav" style="color: ${items.liked ? 'red' : 'gray'}" onclick='addToFav(${items.id})'></i>
-</div>
+        <i class="fa-solid fa-heart fav" style="color: ${items.liked ? 'red' : 'gray'}" onclick='addToFav(${items.id})'></i>
+       <button class="Add-To-Cart" onclick='addToCart(${items.id})'>Add To Cart</button>
+       </div>
     </div>
         `
     })

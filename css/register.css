@@ -78,6 +78,7 @@
 @media screen and (max-width: 768px) {
     .section-form {
         width: 90%;
+        margin-top: 50px;
     }
 
     .section-form h2 {

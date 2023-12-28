@@ -149,26 +149,30 @@ nav ul li a:hover {
     text-align: right;
     display: flex;
     justify-content: space-between;
+    /* justify-content: flex-end; */
     flex-direction: column;
+    
 }
 
 .product_item_actions .Add-To-Cart {
     display: block;
     margin-left: auto;
-    background-color: darkgreen;
+    background-color:  rgb(21, 63, 21);;
     color: #fff;
     border: 0;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Dosis', sans-serif;
+    margin-top: 10px;
 }
 
 .product_item_actions .fav {
     display: block;
     margin-left: auto;
     cursor: pointer;
-    width: 20px;
+    width: 30px;
+ 
 }
 
 .itemsDetails img {
@@ -286,7 +290,7 @@ opacity:0.8 ;
 }
 .qty {
     font-weight: bold;
-    color: #008000; /* Green color for emphasis, adjust as needed */
+    color: #008000; 
 }
 
 @media screen and (max-width: 768px) {
@@ -312,9 +316,10 @@ opacity:0.8 ;
     }
 
     .product_item_actions {
-        flex-direction: row;
-    }
+        /* flex-direction: row; */
+        justify-content: flex-end;
 
+    }
     .product_item_actions .Add-To-Cart {
         padding: 8px 15px;
         font-size: 14px;
@@ -327,6 +332,11 @@ opacity:0.8 ;
 
     .itemsDetails img {
         max-width: 100%;
+    }
+    .productfilter{
+        width: 100%;
+        float:none;
+        margin: 10px 0;
     }
 }
 @media screen and (max-width: 468px) {
@@ -375,7 +385,6 @@ opacity:0.8 ;
         transition: opacity 0.3s ease,  0.3s ease;
     }
     #user_info li .badge {
-        /* display: block; */
         width: 20px;
         height: 20px;
         background-color: rgb(159, 31, 31);
@@ -395,5 +404,16 @@ opacity:0.8 ;
         font-size: 14px;
         margin-left: 30px;
         margin-bottom: 10px;
+    }
+
+    .productfilter{
+        width: 100%;
+        float:none;
+        margin: 10px 0;
+    }
+    #size-filter{
+        width: 100%;
+        height: 40px;
+        display: block;
     }
 }

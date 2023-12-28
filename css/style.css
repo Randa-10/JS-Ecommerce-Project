@@ -238,10 +238,11 @@ opacity:0.8 ;
 .edit{
     display: block;
     width: 140px;
-    background-color: green;
+    background-color: rgb(21, 63, 21);
     color: #fbf9f9;
     padding: 10px 15px ;
     border: none;
+    margin-left: 10px;
 
 }
 /****************************details**********************************/
